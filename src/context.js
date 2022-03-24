@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 const AppContext = React.createContext();
 
-const url = `https://buy-list-dzarek.herokuapp.com/api/products/`;
+const url = process.env.REACT_APP_ACCESS_TOKEN;
 
 const AppProvider = ({ children }) => {
   const alert = document.querySelector(".alert");
