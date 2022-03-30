@@ -214,6 +214,8 @@ p {
   position: relative;
 }
 
+
+
 .center:hover {
   box-shadow: var(--dark-shadow);
 }
@@ -619,7 +621,7 @@ Grocery List
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-content: center;
+  /* align-content: center; */
   align-items: center;
   width: 100%;
   margin: 0 auto;
@@ -793,4 +795,256 @@ footer a span {
 .loader h3 {
   margin-top: 3vh;
   font-size: 1rem;
+}
+
+.login-wrapper {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 35vw;
+  height: 60vh;
+  background: #fff;
+  border: 2px solid rgb(62, 95, 32);
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+  color: rgb(54, 102, 9);
+}
+
+.login-wrapper h2 {
+  font-weight: 400;
+  font-family: 'Mitr', sans-serif;
+  font-size: 2.1rem;
+}
+
+.warning {
+  text-align: center;
+  color: rgb(95, 33, 33);
+  text-transform: none;
+}
+
+.login-wrapper section {
+  width: 80%;
+  margin: 1vh auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  font-size: 1.2rem;
+}
+
+.login-wrapper section input {
+  font-size: 1.2rem;
+  width: 100%;
+  margin-top: 5px;
+  padding: 3px 10px;
+  border-radius: 5px;
+  border: 1px solid rgb(62, 95, 32);
+  background: #fff;
+  color: #111;
+  letter-spacing: 2px;
+  font-weight: 400;
+}
+
+.login-wrapper section label {
+  letter-spacing: 4px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.login-wrapper section input::placeholder {
+  color: #aaa;
+}
+
+.login-wrapper .login-remember {
+  width: 80%;
+  margin: 2vh auto;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  font-size: 1.1rem;
+
+}
+
+.login-wrapper .login-remember input {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  margin-top: -3px;
+  cursor: pointer;
+}
+
+.login-wrapper button {
+  padding: 10px 30px;
+  background: rgb(66, 87, 46);
+  color: white;
+  text-transform: uppercase;
+  border: 2px solid white;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: 0.4s;
+  cursor: pointer;
+  font-weight: 600;
+
+}
+
+.login-wrapper button:hover {
+  border: 2px solid rgb(45, 59, 32);
+  background: white;
+  color: rgb(45, 59, 32);
+}
+
+.logout {
+  position: absolute;
+  top: 3%;
+  right: 5%;
+  font-size: 3rem;
+  cursor: pointer;
+  transition: 0.4s;
+  color: #555;
+}
+
+.logout:hover {
+  color: var(--clr-red-dark);
+}
+
+@media screen and (max-width: 800px) {
+  .logout {
+    top: 1%;
+    font-size: 2rem;
+  }
+
+  .login-wrapper {
+    width: 90vw;
+    height: 80vh;
+  }
+
+  .login-wrapper section {
+    width: 90%;
+    margin: 1vh auto;
+  }
+
+  .login-wrapper section input {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+
+  .login-wrapper section label {
+    letter-spacing: 2px;
+  }
+
+  .login-wrapper h2 {
+    font-size: 1.9rem;
+  }
+}
+
+@media (orientation:landscape) and (min-width:1024px) {
+  .center {
+    max-width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .grocery-form {
+    width: 50vw;
+    position: absolute;
+    left: 0%;
+    top: 1%;
+  }
+
+  .form-control {
+    margin-top: 7vh;
+  }
+
+  .grocery-container {
+    width: 50vw;
+    left: 50%;
+    transform: translateX(-100%);
+    top: 30%;
+    height: 65vh;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  .grocery-list {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 5vh;
+    width: 90%;
+    overflow: auto;
+    max-height: 70%;
+    padding: 3vh 3vw;
+  }
+
+  .favorite {
+    width: 50vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 50vw;
+    margin: 0;
+    padding: 5vh 2vw;
+  }
+
+
+
+  .favorite-container-products {
+    position: absolute;
+    overflow: auto;
+    max-height: 50%;
+    width: 49.4vw;
+    top: 44%;
+    left: 49.5%;
+    transform: translateX(-50%);
+    padding: 0 4vw;
+  }
+
+  footer {
+    position: absolute;
+    width: 50vw;
+    bottom: 0;
+    left: 50vw;
+  }
+
+  #grocery {
+    width: 20vw;
+    padding: 3vh 0;
+  }
+
+  .submit-btn {
+    padding: 3vh 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .logout {
+    top: 6vh;
+    left: 0;
+  }
+
+  .loader {
+    position: absolute;
+    top: 50vh;
+    left: 16.5%;
+  }
+
+  .loader img {
+    width: 100px;
+  }
+
+  .loader h3 {
+    font-size: 2rem;
+  }
+
+  .favorite-title {
+    font-size: 1.9rem;
+  }
 }

@@ -5,7 +5,10 @@ import { useGlobalContext } from "../context";
 const GroceryItem = ({ id, name }) => {
   const { deleteItem, handleEditItem } = useGlobalContext();
   const [newClass, setNewClass] = useState(false);
-
+  const handleDelete = (id) => {
+    deleteItem(id);
+    setNewClass(true);
+  };
   return (
     <article
       data-id={id}
@@ -25,8 +28,9 @@ const GroceryItem = ({ id, name }) => {
       <button
         type="button"
         className="delete-btn"
-        onClick={() => deleteItem(id)}
-        onMouseDown={() => setNewClass(true)}
+        onClick={() => {
+          handleDelete(id);
+        }}
       >
         <FaTrash />
       </button>

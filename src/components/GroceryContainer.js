@@ -15,25 +15,27 @@ const GroceryContainer = () => {
     return <Loading />;
   }
   return (
-    <div
-      className={
-        products.length > 0
-          ? "grocery-container show-container"
-          : "grocery-container"
-      }
-    >
-      <div className="grocery-list">
-        {products.map((item) => {
-          return <GroceryItem key={item.id} {...item} />;
-        })}
-      </div>
-      <button
-        type="button"
-        className="clear-btn"
-        onClick={() => setOpenClearModal(true)}
+    <>
+      <div
+        className={
+          products.length > 0
+            ? "grocery-container show-container"
+            : "grocery-container"
+        }
       >
-        wyczyść listę
-      </button>
+        <div className="grocery-list">
+          {products.map((item) => {
+            return <GroceryItem key={item.id} {...item} />;
+          })}
+        </div>
+        <button
+          type="button"
+          className="clear-btn"
+          onClick={() => setOpenClearModal(true)}
+        >
+          wyczyść listę
+        </button>
+      </div>
       {openClearModal && (
         <div className="clearModal">
           <h2>Czy na pewno wyczyścić całą listę?</h2>
@@ -50,7 +52,7 @@ const GroceryContainer = () => {
           </section>
         </div>
       )}
-    </div>
+    </>
   );
 };
 
