@@ -997,9 +997,9 @@ footer a span {
   .favorite-container-products {
     position: absolute;
     overflow: auto;
-    max-height: 50%;
+    max-height: 46%;
     width: 49.4vw;
-    top: 44%;
+    top: 48%;
     left: 49.5%;
     transform: translateX(-50%);
     padding: 0 4vw;
@@ -1028,6 +1028,8 @@ footer a span {
   .logout {
     top: 6vh;
     left: 0;
+    width: 5vw;
+    text-align: center;
   }
 
   .loader {
@@ -1046,5 +1048,10 @@ footer a span {
 
   .favorite-title {
     font-size: 1.9rem;
+  }
+
+  .favorite-container-products img {
+    width: 5vw;
+    height: 5vw;
   }
 }
