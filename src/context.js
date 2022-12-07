@@ -5,45 +5,65 @@ const AppContext = React.createContext();
 const url = process.env.REACT_APP_ACCESS_TOKEN;
 const AppProvider = ({ children }) => {
   const alert = document.querySelector(".alert");
+
   const [products, setProducts] = useState([]);
   const [productName, setProductName] = useState("");
   const [edit, setEdit] = useState(false);
   const [editID, setEditID] = useState(null);
   const [openClearModal, setOpenClearModal] = useState(false);
   const [activeProducts, setActiveProducts] = useState("");
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
+
+  // ****** LOCAL STORAGE **********
+
+  const getLocalStorage = () => {
+    const saved = localStorage.getItem("products");
+    const initialValue = JSON.parse(saved);
+    setProducts(initialValue);
+    return initialValue;
+  };
+  useEffect(() => {
+    getLocalStorage();
+  }, []);
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      setLoading(true);
-      /* eslint-disable no-unused-vars */
-      let singleProduct = {};
-      /* eslint-disable no-unused-vars */
-      try {
-        const response = await fetch(url);
-        const data = await response.json();
-        const items = data.data.map((item) => {
-          const {
-            attributes: { idproduct, name },
-          } = item;
-          return (singleProduct = { id: idproduct, name: name });
-        });
-        if (items.length > 0) {
-          setProducts(items);
-        } else {
-          setProducts([]);
-        }
-        setLoading(false);
-      } catch (error) {
-        console.log(error);
-        setLoading(false);
-      }
-    };
-    fetchProducts();
-    setInterval(() => {
-      fetchProducts();
-    }, 60000);
-  }, []);
+    localStorage.setItem("products", JSON.stringify(products));
+  }, [products]);
+
+  // ****** END LOCAL STORAGE **********
+
+  // useEffect(() => {
+  //   const fetchProducts = async () => {
+  //     setLoading(true);
+  //     /* eslint-disable no-unused-vars */
+  //     let singleProduct = {};
+  //     /* eslint-disable no-unused-vars */
+  //     try {
+  //       const response = await fetch(url);
+  //       const data = await response.json();
+  //       const items = data.data.map((item) => {
+  //         const {
+  //           attributes: { idproduct, name },
+  //         } = item;
+  //         return (singleProduct = { id: idproduct, name: name });
+  //       });
+  //       if (items.length > 0) {
+  //         setProducts(items);
+  //       } else {
+  //         setProducts([]);
+  //       }
+  //       setLoading(false);
+  //     } catch (error) {
+  //       console.log(error);
+  //       setLoading(false);
+  //     }
+  //   };
+
+  //   fetchProducts();
+  //   setInterval(() => {
+  //     fetchProducts();
+  //   }, 60000);
+  // }, []);
 
   const handleChange = (e) => {
     setProductName(e.target.value);
